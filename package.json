@@ -1,7 +1,7 @@
 {
   "name": "combination-finder",
   "version": "1.0.0",
-  "description": "Searches the best combintion of segments for 6m bords",
+  "description": "Searches the best combintion of segments for 6m boаrds",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",

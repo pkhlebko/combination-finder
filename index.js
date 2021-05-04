@@ -1,29 +1,19 @@
 const Board = require('./board.class').Board;
+const grillageData = require('./grillage.data');
+const houseData = require('./house.data');
 
-const sections = [
-  { length: 1565, quantity: 14 },
-  { length: 1665, quantity: 8 },
-  { length: 2560, quantity: 4 },
-  { length: 2610, quantity: 16 },
-  { length: 2710, quantity: 10 },
-  { length: 2825, quantity: 4 },
-  { length: 2850, quantity: 2 },
-  { length: 2925, quantity: 16 },
-  { length: 2950, quantity: 8 },
-  { length: 3280, quantity: 3 },
-  { length: 3380, quantity: 1 },
-  { length: 4000, quantity: 5 },
-  { length: 5000, quantity: 1 },
-  { length: 6000, quantity: 4 },
-  { length: 850, quantity: 2 },
-  { length: 950, quantity: 6 },
-];
+function echoСuttingChart(sections) {
+  const sortedSections = sections.sort((a, b) => a.length - b.length).reverse();
+  const boards = [];
 
+  while (sortedSections.length > 0) {
+    boards.push(Board.fillBoard(sortedSections, new Board()));
+  }
 
-const boards = [];
+  console.log(`You need ${boards.length} boards`);
+  console.log(`Сutting chart`);
+  boards.forEach(board => console.log(board.toString()));
+}
 
-const newBoard = new Board();
-newBoard.pushSection(850);
-newBoard.pushSection(6000);
-
-console.log(newBoard);
+// echoСuttingChart(grillageData);
+echoСuttingChart(houseData);
